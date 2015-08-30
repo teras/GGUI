@@ -1,0 +1,313 @@
+[General]
+Program=program-name
+ProgramTail= *end*
+WindowTitle=This is a demo GGUI wizard.
+Windowed=true
+leaveSpaces=true
+Pages=7
+
+[Page1]
+helpText=Welcome to the Demo Wizard\lThis Wizard is used only to demostrate the GGUI objects.\l \lIt won't be in otherways useful.
+Image=ggui.gif
+canFinish=false
+Interactive=true
+Objects=6
+
+[P1Interactive]
+Object=6
+on1jumpTo=2
+on2jumpTo=3
+on3jumpTo=4
+on4jumpTo=5
+on5jumpTo=6
+
+[P1Object1]
+Type=info
+GUIType=label
+helpText=Welcome to GGUI Wizard
+
+[P1Object2]
+Type=info
+GUIType=label
+helpText=With this wizard you can see a demo of every
+
+[P1Object3]
+Type=info
+GUIType=label
+helpText=visual object for the GGUI environment.
+
+[P1Object4]
+Type=info
+GUIType=label
+helpText=
+
+[P1Object5]
+Type=info
+GUIType=label
+helpText=
+
+[P1Object6]
+Type=chooser
+GUIType=checkbox
+countOptions=5
+Option1=
+optionText1=See boolean objects
+Option2=
+optionText2=See chooser objects
+Option3=
+optionText3=See freetext objects
+Option4=
+optionText4=See other objects
+Option5=
+optionText5=See static objects
+defaultOption=1
+helpText=Please select one option.
+
+[Page2]
+helpText=
+Image=ggui.gif
+canFinish=false
+Interactive=true
+Objects=4
+
+[P2Interactive]
+Object=1
+on1jumpTo=7
+
+[P2Object1]
+Type=info
+GUIType=label
+helpText=This page demostrates the boolean functions.
+
+[P2Object2]
+Type=boolean
+defaultState=true
+GUIType=chechbox
+forceEnabled=-boolean1-on
+enabledText=Enable this feature.
+forceDisabled=-boolean1-off
+disabledText=
+helpText=A checkbox boolean option.
+
+[P2Object3]
+Type=info
+GUIType=label
+helpText=
+
+[P2Object4]
+Type=boolean
+defaultState=false
+GUIType=choice
+forceEnabled=-boolean2-on\l
+enabledText=Do me!.
+forceDisabled=-boolean2-off\l
+disabledText=Don't me
+helpText=A choice boolean option.
+
+[Page3]
+helpText=
+Image=ggui.gif
+canFinish=false
+Interactive=true
+Objects=6
+
+[P3Interactive]
+Object=1
+on1jumpTo=7
+
+[P3Object1]
+Type=info
+GUIType=label
+helpText=This page demostrates the chooser functions.
+
+[P3Object2]
+Type=chooser
+GUIType=checkbox
+countOptions=2
+Option1=-chooser1-1
+optionText1=First Option
+Option2=-chooser1-2
+optionText2=Second Option
+defaultOption=1
+helpText=Please select a multi-option.
+
+[P3Object3]
+Type=info
+GUIType=label
+helpText=
+
+[P3Object4]
+Type=chooser
+GUIType=list
+countOptions=4
+Option1=-chooser2-1
+optionText1=First List Option (2)
+Option2=-chooser2-2
+optionText2=Second List Option (2)
+Option3=-chooser2-3
+optionText3=Third List Option (2)
+Option4=-chooser2-4
+optionText4=Forth List Option (2)
+defaultOption=3
+helpText=This is another multi-option.
+
+[P3Object5]
+Type=info
+GUIType=label
+helpText=
+
+[P3Object6]
+Type=chooser
+GUIType=choice
+countOptions=5
+Option1=-chooser3-1\l
+optionText1=First Option (3+)
+Option2=-chooser3-2\l
+optionText2=Second Option (3+)
+Option3=-chooser3-3\l
+optionText3=Third Option (3+)
+Option4=-chooser3-4\l
+optionText4=Forth Option (3+)
+Option5=-chooser3-5\l
+optionText5=Fifth Option (3+)
+defaultOption=5
+helpText=Please select one : 
+
+[Page4]
+helpText=
+Image=ggui.gif
+canFinish=false
+Interactive=true
+Objects=4
+
+[P4Interactive]
+Object=1
+on1jumpTo=7
+
+[P4Object1]
+Type=info
+GUIType=label
+helpText=This page demostrates the freetext functions.
+
+[P4Object2]
+Type=freetext
+defaultText=This is a sample text.
+helpText=Another FreeText entry.
+GUIType=textfield
+leadText=-freetext1 "
+trailText="
+appearAlways=false
+
+[P4Object3]
+Type=info
+GUIType=label
+helpText=
+
+[P4Object4]
+Type=freetext
+defaultText=This is the default text for a FreeText component.
+helpText=A FreeText entry.
+GUIType=textarea
+leadText=-freetext2 "
+trailText="
+appearAlways=true
+
+[Page5]
+helpText=
+Image=ggui.gif
+canFinish=false
+Interactive=true
+Objects=5
+
+[P5Interactive]
+Object=1
+on1jumpTo=7
+
+[P5Object1]
+Type=info
+GUIType=label
+helpText=This page demostrates various static objects.
+
+[P5Object2]
+Type=info
+GUIType=label
+helpText=
+
+[P5Object3]
+Type=filechooser
+defaultFile=
+helpText=This is a FileChooser object. It is used for selecting filenames.
+leadText=-file "
+trailText="
+appearAlways=false
+
+[P5Object4]
+Type=info
+GUIType=label
+helpText=
+
+[P5Object5]
+Type=integer
+defaultInt=0
+helpText=Integer Object. Use it to add an integer parameter value
+leadText=
+trailText=
+minimum=-32565
+maximum=32565
+smallStep=1
+bigStep=10
+
+[Page6]
+helpText=
+Image=ggui.gif
+canFinish=false
+Interactive=false
+Objects=6
+
+[P6Object1]
+Type=info
+GUIType=label
+helpText=This page demostrates various static objects.
+
+[P6Object2]
+Type=info
+GUIType=label
+helpText=This is an Info - Label object. It displays text
+
+[P6Object3]
+Type=info
+GUIType=textfield
+helpText=This is an Info - TextField object. It can display text too
+
+[P6Object4]
+Type=info
+GUIType=textarea
+helpText=This is an Info - TextArea object. It can display text\lin more than one lines.
+
+[P6Object5]
+Type=info
+GUIType=label
+helpText=The following object is a 3Dline object: it creates a horizontal line
+
+[P6Object6]
+Type=info
+GUIType=label
+helpText=
+
+[Page7]
+helpText=
+Image=ggui.gif
+canFinish=false
+Interactive=false
+Objects=2
+
+[P7Object1]
+Type=info
+GUIType=label
+helpText=The Wizard has gathered all the needed information.
+
+[P7Object2]
+Type=info
+GUIType=label
+helpText=Please click on "finish" to end this wizard.
+

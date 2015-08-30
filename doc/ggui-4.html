@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+ <META NAME="GENERATOR" CONTENT="SGML-Tools 1.0.9">
+ <TITLE>G G U I: Usage</TITLE>
+ <LINK HREF="ggui-5.html" REL=next>
+ <LINK HREF="ggui-3.html" REL=previous>
+ <LINK HREF="ggui.html#toc4" REL=contents>
+</HEAD>
+<BODY>
+<A HREF="ggui-5.html">Next</A>
+<A HREF="ggui-3.html">Previous</A>
+<A HREF="ggui.html#toc4">Contents</A>
+<HR>
+<H2><A NAME="s4">4. Usage</A></H2>
+
+<P>Let's say you have unpacked GGUI in directory. How can you use it? There are two
+possible ways:
+<UL>
+<LI>Use an already defined data file for a target-program. This method is
+recommended for novice users or for users who don't care for the actuall
+parameters of a programm and have found a data file for their desired
+target-program. Unfortunately there are only a very few data files ready :-(</LI>
+<LI>Create a data-file and use it to call a program. The reason to do this
+is simple: to use it for a program which has many and complicated parameters
+and there isn't any UI for this program or to distribute it to others :-).
+When you create such a file, please send it to me too.</LI>
+</UL>
+Since some of you are not familiar with the way Java handles "executable" JAR files, 
+I'll comment here how to run them from the command prompt.
+<UL>
+<LI>First of all you need to have the "java"
+executable in your $PATH. E.g. type "java" and see what happens.
+</LI><LI>
+Use an alias to run the GGUI environment. This makes things easier for you, since
+you won't have to write a long command everytime you want to run GGUI.
+<code>alias ggui="java -jar /PATH/TO/ggui-0.5.0/bin/ggui.jar"</code>
+<p>
+Now, everytime you write "ggui" on your console, the proper java initialization takes place.
+<p>
+<LI>For the rest of this document we will continue as if this alias command has been issued.</LI>
+</UL>
+<P>
+<H2><A NAME="ss4.1">4.1 General Usage </A>
+</H2>
+
+<P>At the command prompt type <CODE>ggui --help</CODE>. You will see information on how to run
+the GGUI program, together with a list of included data files. With this
+version of GGUI there are only these datafiles included:
+<UL>
+<LI>The demo datafile. This is a brief demostration of what the wizard can
+do. Usage: <CODE>ggui demo</CODE></LI>
+<LI>The xterm datafile. This is a demostration of an xterm command. Usage:
+<CODE>ggui xterm</CODE></LI>
+<LI>The a2ps datafile. This is a demostration of an a2ps command. Usage:
+<CODE>ggui a2ps</CODE></LI>
+<LI>The ggui datafile. This is a wrapper for all datafiles. Use it as an
+entry point for both (by Mike Roeder). Usage: <CODE>ggui ggui</CODE></LI>
+</UL>
+
+In version 0.3.0 uninstall is not supported. Maybe in future versions if
+it is really needed it will be supported too.
+<P>
+<HR>
+<A HREF="ggui-5.html">Next</A>
+<A HREF="ggui-3.html">Previous</A>
+<A HREF="ggui.html#toc4">Contents</A>
+</BODY>
+</HTML>

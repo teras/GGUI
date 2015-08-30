@@ -1,0 +1,193 @@
+[General]
+Program=a2ps
+ProgramTail=
+WindowTitle=A2PS convertion wizard
+Windowed=true
+leaveSpaces=true
+Pages=5
+
+[Page1]
+helpText=
+Image=a2ps.gif
+canFinish=false
+Interactive=false
+Objects=4
+
+[P1Object1]
+Type=info
+GUIType=label
+helpText=Welcome to the a2ps Wizard !
+
+[P1Object2]
+Type=info
+GUIType=label
+helpText=With this wizard you can easily convert a Text file to Postscript
+
+[P1Object3]
+Type=info
+GUIType=label
+helpText=
+
+[P1Object4]
+Type=info
+GUIType=label
+helpText=Click on "Next" to continue...
+
+[Page2]
+helpText=
+Image=a2ps.gif
+canFinish=false
+Interactive=true
+Objects=5
+
+[P2Interactive]
+Object=1
+on1jumpTo=4
+
+[P2Object1]
+Type=info
+GUIType=label
+helpText=General Options
+
+[P2Object2]
+Type=integer
+defaultInt=1
+helpText=How many copies do you want?
+leadText=-#
+trailText=
+minimum=1
+maximum=99
+smallStep=1
+bigStep=10
+
+[P2Object3]
+Type=boolean
+defaultState=true
+GUIType=choice
+forceEnabled=-p
+enabledText=Portrait
+forceDisabled=-l
+disabledText=Landscape
+helpText=Print in Portrait or in Landscape mode?
+
+[P2Object4]
+Type=boolean
+defaultState=true
+GUIType=choice
+forceEnabled=-1
+enabledText=One Page
+forceDisabled=-2
+disabledText=Two Pages
+helpText=How many pages per sheet?
+
+[P2Object5]
+Type=chooser
+GUIType=choice
+countOptions=4
+Option1=
+optionText1=Default
+Option2=-8
+optionText2=Use 8-bit characters
+Option3=-b
+optionText3=Force binary printing
+Option4=
+optionText4=Force binary &  print 8-bit
+defaultOption=1
+helpText=International characters
+
+[Page3]
+helpText=
+Image=a2ps.gif
+canFinish=true
+Interactive=true
+Objects=4
+
+[P3Interactive]
+Object=1
+on1jumpTo=5
+
+[P3Object1]
+Type=info
+GUIType=label
+helpText=Cosmetic Functions
+
+[P3Object2]
+Type=boolean
+defaultState=true
+GUIType=choice
+forceEnabled=-d
+enabledText=Print current date at bottom
+forceDisabled=-nd
+disabledText=Don't print date
+helpText=Use current date?
+
+[P3Object3]
+Type=boolean
+defaultState=false
+GUIType=chechbox
+forceEnabled=-s
+enabledText=Print surrounding borders
+forceDisabled=-ns
+disabledText=Don't print borders
+helpText=Use borders?
+
+[P3Object4]
+Type=integer
+defaultInt=4
+helpText=Font size (in points)
+leadText=-F
+trailText=
+minimum=4
+maximum=127
+smallStep=1
+bigStep=10
+
+[Page4]
+helpText=
+Image=a2ps.gif
+canFinish=true
+Interactive=true
+Objects=4
+
+[P4Interactive]
+Object=3
+on1jumpTo=3
+
+[P4Object1]
+Type=info
+GUIType=label
+helpText=File operations
+
+[P4Object2]
+Type=filechooser
+defaultFile=
+helpText=Choose a text file to print
+leadText="
+trailText="
+appearAlways=true
+
+[P4Object3]
+Type=info
+GUIType=label
+helpText=The filename of the resulting output
+
+[P4Object4]
+Type=filechooser
+defaultFile=results.ps
+helpText=(leave it blank if you want to directly print it)
+leadText=-nP >"
+trailText="
+appearAlways=false
+
+[Page5]
+helpText=
+Image=a2ps.gif
+canFinish=true
+Interactive=false
+Objects=1
+
+[P5Object1]
+Type=info
+GUIType=label
+helpText=All information needed is gathered. Click on "Finish" to do the convertion.
+

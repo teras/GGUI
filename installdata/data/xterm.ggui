@@ -1,0 +1,396 @@
+[General]
+Program=xterm 
+ProgramTail=
+WindowTitle=X-Term creating wizard.
+Windowed=false
+leaveSpaces=false
+Pages=6
+
+[Page1]
+helpText=
+Image=xterm1.gif
+canFinish=true
+Interactive=false
+Objects=7
+
+[P1Object1]
+Type=info
+GUIType=label
+helpText=
+
+[P1Object2]
+Type=info
+GUIType=label
+helpText=Welcome to the xterm creating Wizard.
+
+[P1Object3]
+Type=info
+GUIType=label
+helpText=
+
+[P1Object4]
+Type=info
+GUIType=label
+helpText=We hope now that the creation of a full customized
+
+[P1Object5]
+Type=info
+GUIType=label
+helpText=xterm will be much easier and more fun!
+
+[P1Object6]
+Type=info
+GUIType=label
+helpText=
+
+[P1Object7]
+Type=info
+GUIType=textfield
+helpText=Click on "Next" to begin, or click at "Finish" to execute it at any time.
+
+[Page2]
+helpText=
+Image=xterm2.gif
+canFinish=true
+Interactive=false
+Objects=7
+
+[P2Object1]
+Type=info
+GUIType=label
+helpText=Colour parameters
+
+[P2Object2]
+Type=chooser
+GUIType=choice
+countOptions=9
+Option1=
+optionText1=Default
+Option2=-fg black 
+optionText2=Black
+Option3=-fg blue 
+optionText3=Blue
+Option4=-fg green 
+optionText4=Green
+Option5=-fg red 
+optionText5=Red
+Option6=-fg yellow 
+optionText6=Yellow
+Option7=-fg magenta 
+optionText7=Magenta
+Option8=-fg cyan 
+optionText8=Cyan
+Option9=-fg white 
+optionText9=White
+defaultOption=1
+helpText=Foreground color
+
+[P2Object3]
+Type=chooser
+GUIType=choice
+countOptions=9
+Option1=
+optionText1=Default
+Option2=-bg black 
+optionText2=Black
+Option3=-bg blue 
+optionText3=Blue
+Option4=-bg green 
+optionText4=Green
+Option5=-bg red 
+optionText5=Red
+Option6=-bg yellow 
+optionText6=Yellow
+Option7=-bg magenta 
+optionText7=Magenta
+Option8=-bg cyan 
+optionText8=Cyan
+Option9=-bg white 
+optionText9=White
+defaultOption=1
+helpText=Background color
+
+[P2Object4]
+Type=chooser
+GUIType=choice
+countOptions=9
+Option1=
+optionText1=Default
+Option2=-bd black 
+optionText2=Black
+Option3=-bd blue 
+optionText3=Blue
+Option4=-bd green 
+optionText4=Green
+Option5=-bd red 
+optionText5=Red
+Option6=-bd yellow 
+optionText6=Yellow
+Option7=-bd magenta 
+optionText7=Magenta
+Option8=-bd cyan 
+optionText8=Cyan
+Option9=-bd white 
+optionText9=White
+defaultOption=1
+helpText=Border color
+
+[P2Object5]
+Type=chooser
+GUIType=choice
+countOptions=9
+Option1=
+optionText1=Default
+Option2=-cr black 
+optionText2=Black
+Option3=-cr blue 
+optionText3=Blue
+Option4=-cr green 
+optionText4=Green
+Option5=-cr red 
+optionText5=Red
+Option6=-cr yellow 
+optionText6=Yellow
+Option7=-cr magenta 
+optionText7=Magenta
+Option8=-cr cyan 
+optionText8=Cyan
+Option9=-cr white 
+optionText9=White
+defaultOption=1
+helpText=Cursor color
+
+[P2Object6]
+Type=boolean
+defaultState=true
+GUIType=choice
+forceEnabled=+cm 
+enabledText=Use ANSI
+forceDisabled=-cm 
+disabledText=Black & White
+helpText=Color mode:
+
+[P2Object7]
+Type=boolean
+defaultState=false
+GUIType=chechbox
+forceEnabled=-rv 
+enabledText=Enabled
+forceDisabled=
+disabledText=Disabled
+helpText=Reverse Video:
+
+[Page3]
+helpText=
+Image=xterm3.gif
+canFinish=true
+Interactive=false
+Objects=7
+
+[P3Object1]
+Type=info
+GUIType=label
+helpText=General displaying settings
+
+[P3Object2]
+Type=boolean
+defaultState=true
+GUIType=chechbox
+forceEnabled=-cu 
+enabledText=Enabled
+forceDisabled=
+disabledText=Disabled
+helpText=Curses emulation:
+
+[P3Object3]
+Type=freetext
+defaultText=fixed
+helpText=Normal text font
+GUIType=textfield
+leadText=-fn "
+trailText=" 
+appearAlways=false
+
+[P3Object4]
+Type=freetext
+defaultText=
+helpText=Bold text font
+GUIType=textfield
+leadText=-fb "
+trailText=" 
+appearAlways=false
+
+[P3Object5]
+Type=boolean
+defaultState=false
+GUIType=chechbox
+forceEnabled=-nul 
+enabledText=Enabled
+forceDisabled=
+disabledText=Disabled
+helpText=Underline:
+
+[P3Object6]
+Type=integer
+defaultInt=40
+helpText=Width of the window
+leadText=-geometry 
+trailText=
+minimum=1
+maximum=100
+smallStep=1
+bigStep=10
+
+[P3Object7]
+Type=integer
+defaultInt=60
+helpText=Height of the window
+leadText=x
+trailText= 
+minimum=1
+maximum=160
+smallStep=1
+bigStep=10
+
+[Page4]
+helpText=
+Image=xterm4.gif
+canFinish=true
+Interactive=false
+Objects=7
+
+[P4Object1]
+Type=info
+GUIType=label
+helpText=Various settings
+
+[P4Object2]
+Type=boolean
+defaultState=false
+GUIType=choice
+forceEnabled=-ls 
+enabledText=Login
+forceDisabled=
+disabledText=Normal
+helpText=Type of shell
+
+[P4Object3]
+Type=boolean
+defaultState=false
+GUIType=choice
+forceEnabled=-vb 
+enabledText=Enabled
+forceDisabled=
+disabledText=Disabled
+helpText=Visual Bell
+
+[P4Object4]
+Type=integer
+defaultInt=0
+helpText=Border width in pixels 
+leadText=-bw 
+trailText= 
+minimum=0
+maximum=200
+smallStep=1
+bigStep=10
+
+[P4Object5]
+Type=boolean
+defaultState=false
+GUIType=choice
+forceEnabled=-iconic 
+enabledText=Iconic
+forceDisabled=
+disabledText=Normal
+helpText=Start Status
+
+[P4Object6]
+Type=freetext
+defaultText=
+helpText=Logging filename
+GUIType=textfield
+leadText=-lf "
+trailText=" 
+appearAlways=false
+
+[P4Object7]
+Type=boolean
+defaultState=false
+GUIType=choice
+forceEnabled=-sb 
+enabledText=Enabled
+forceDisabled=+sb 
+disabledText=Disabled
+helpText=Show Scrollbar
+
+[Page5]
+helpText=
+Image=xterm5.gif
+canFinish=true
+Interactive=false
+Objects=5
+
+[P5Object1]
+Type=info
+GUIType=label
+helpText=Title Features
+
+[P5Object2]
+Type=freetext
+defaultText=ggui X-term window
+helpText=Title of the window
+GUIType=textfield
+leadText=-T "
+trailText=" 
+appearAlways=false
+
+[P5Object3]
+Type=freetext
+defaultText=ggui X-term
+helpText=Icon name of the window
+GUIType=textfield
+leadText=-n "
+trailText=" 
+appearAlways=false
+
+[P5Object4]
+Type=freetext
+defaultText=GGUI xterm
+helpText=Title String
+GUIType=textfield
+leadText=-title "
+trailText=" 
+appearAlways=false
+
+[P5Object5]
+Type=freetext
+defaultText=xterm-client1
+helpText=Client instance, icon and title settings
+GUIType=textfield
+leadText=-name "
+trailText=" 
+appearAlways=false
+
+[Page6]
+helpText=
+Image=
+canFinish=true
+Interactive=false
+Objects=3
+
+[P6Object1]
+Type=info
+GUIType=label
+helpText=The wizard has gathered all the needed information.
+
+[P6Object2]
+Type=info
+GUIType=label
+helpText=
+
+[P6Object3]
+Type=info
+GUIType=label
+helpText=Click on "Finish" to run  XTERM
+

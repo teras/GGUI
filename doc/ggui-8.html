@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+ <META NAME="GENERATOR" CONTENT="SGML-Tools 1.0.9">
+ <TITLE>G G U I: Frequently asked questions</TITLE>
+ <LINK HREF="ggui-9.html" REL=next>
+ <LINK HREF="ggui-7.html" REL=previous>
+ <LINK HREF="ggui.html#toc8" REL=contents>
+</HEAD>
+<BODY>
+<A HREF="ggui-9.html">Next</A>
+<A HREF="ggui-7.html">Previous</A>
+<A HREF="ggui.html#toc8">Contents</A>
+<HR>
+<H2><A NAME="s8">8. Frequently asked questions</A></H2>
+
+<P>For any problem you experience, please give me a note! I will be glad to
+help you! 
+<P>
+<H2><A NAME="ss8.1">8.1 When I try to run GGUI from the command line, I get some SIGSEGVs and the program crashes. What to do next? </A>
+</H2>
+
+<P>This is not a GGUI's problem, it's a JDK's. That means you have found a bug
+in the Java Development Kit, not for the GGUI program itself. GGUI bugs
+produce "exceptions" not SIGSEGVs. The only thing you can do now is upgrade
+to a major version number JDK and hope that they have fixed the bug. The
+people who informed about it they have a glibc2 based system (e.g. Redhat
+5.2). I have reports that JDK v 1.1.7 works fine with them, so this version
+is recommended. Of course if you see any "exceptions", please contact me to
+fix the bug.
+<P>
+<H2><A NAME="ss8.2">8.2 How can the wizard remember my settings, next time I call it?</A>
+</H2>
+
+<P>Good news! From version 0.3.0 onward the wizard remembers the last values you
+enter and use it the next time you call it. All default values are saved in
+directory <CODE>~/.ggui/</CODE>.
+<P>
+<H2><A NAME="ss8.3">8.3 Why don't exist many demo datafiles? </A>
+</H2>
+
+<P>Simple: I din't have the time to create any :-) I was hoping to create a
+tool for GUI, not make datafiles for every program. So, ANYONE OF YOU is
+welcomed to create some data files for this environment. It is NOT difficult
+and you DON'T need to be programmer to create some. So, if you liked this and
+you think that it can be better, CREATE SOME DATA FILES! 
+<P>
+<H2><A NAME="ss8.4">8.4 The "demo" datafile returns with an error "Cannot execute command"... </A>
+</H2>
+
+<P>Of course! This is only a demo script. It is not an actual datafile. It is
+only a "sceleton" or a "demo-datafile" for educational and presentational
+purposes only :-) 
+<P>
+<H2><A NAME="ss8.5">8.5 Why in all text entries spaces are not allowed? </A>
+</H2>
+
+<P>Not anymore!! Now it <B>is</B> possible to enter text entries with spaces. But
+now you have to be carefull with which shell do you install GGUI with. If you
+want to write a datafile with text-entries which spaces are allowed don't
+forget to enclose the parameter in "" (e.g. in leadText and in trailText)
+<P>
+<H2><A NAME="ss8.6">8.6 Are datafiles shell-specific?</A>
+</H2>
+
+<P>Yes and no. To run these commands you definately need a shell. The GGUI
+passes the commands to shell (which you have defined during installation) and
+the shell executes them. If you define normal commands, not shell-specific,
+then the datafile is universal. Of course if you use shell-specific commands
+then the datafile is shell-dependent too. In future versions you'll be able
+to define shell-specific datafiles (if you want to). Remember that usually
+you'll have problems, if you create scripts on the fly, not when you just
+call a cli-target-program.
+<P>
+<H2><A NAME="ss8.7">8.7 Why do you need to create the data file using text ? Doesn't it half defeat the purpose ? </A>
+</H2>
+
+<P>Not any more! Now with Creator you <B>can</B> create data files in a completely
+GUI environment! Of couse still this program is "heavy" and maybe buggy, but
+I can't think of a more pleasant solution! If we want to create a GUI
+environment, we have to collect information on HOW to display the various
+options, WHAT to display and WHAT to execute.
+<P>
+<H2><A NAME="ss8.8">8.8 Is GGUI Java 1.2 compatible?</A>
+</H2>
+
+<P>Yes! And not only that, but it's also rewritten in Swing!
+<P>
+<H2><A NAME="ss8.9">8.9 Why did you use Swing, since there is no fre implementation of swing (yet) and there are other toolkits available (like SWT)?</A>
+</H2>
+
+<P>The reason is simple: since I know Swing and I don't know SWT ;-)  Seriously now, since version 0.5.0 there is an effort to distinguish between the real GGUI code and the visual components being used. For this reason it has been used a "componenty proxy", namely the wVisuals library.<p>
+Inside this library there are proxies for(almost) every Swing component being used. By changing this library to a SWT-based one, it sould be easy to port this program to SWT (or whatever you will like).
+<p>
+Contributions to this aspect will be highly appreciated
+<P>
+<HR>
+<A HREF="ggui-9.html">Next</A>
+<A HREF="ggui-7.html">Previous</A>
+<A HREF="ggui.html#toc8">Contents</A>
+</BODY>
+</HTML>

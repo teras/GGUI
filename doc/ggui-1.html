@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+ <META NAME="GENERATOR" CONTENT="SGML-Tools 1.0.9">
+ <TITLE>G G U I: Introduction</TITLE>
+ <LINK HREF="ggui-2.html" REL=next>
+
+ <LINK HREF="ggui.html#toc1" REL=contents>
+</HEAD>
+<BODY>
+<A HREF="ggui-2.html">Next</A>
+Previous
+<A HREF="ggui.html#toc1">Contents</A>
+<HR>
+<H2><A NAME="s1">1. Introduction</A></H2>
+
+<P>
+<H2><A NAME="ss1.1">1.1 Latest version</A>
+</H2>
+
+<P>The latest version can always been found in 
+<A HREF="http://www.ggui.org">http://www.ggui.org</A>.
+<P>You can also use the following URL:
+<A HREF="http://www.panayotis.com/ggui">http://www.panayotis.com/ggui</A>
+<P>
+<H2><A NAME="ss1.2">1.2 General Information</A>
+</H2>
+
+<P>This program is used to make life easier for a lot of us. The main aspect is
+to create a graphical user interface (the way we talk to the computer, but in
+a graphical - not textual - way). 
+<P>Traditionally all the Un*x programs including Linux use the command line as
+the main user interface for almost all programs. If you want to call a
+program you write it's name on the console (or xterm) together with any
+parameters of this program. This is very convenient for advanced users or for
+script programming. But for all the other uses (and users) this is a
+headache. Usually you have to remember all these switches and parameters and
+examine the "man" page of this program or run this program once with a "help"
+switch (e.g. "--help" or "-h") in order to dislay all the other switches of
+this program. Even if you know the exact parameter, sometimes a typing
+mistake will lead to unpredictable errors. 
+<P>Part solutions to this problem have been introduced. Someone writes a
+program (in C/C++ usually or in Tcl/Tk) which creates a nice UI
+(user-interface) for this program. This ui-program runs before the actual
+program (let's call it target-program), collects all the needed information
+for the target-program and then executes it. These ui-programs are good, but
+they have a great disadvantage: they are for one target-program only. If
+something changes in the target-program, the ui-program has to change too. If
+the writer of the ui-program can't correct it for the time being, then
+the ui-program stays behind and (if you want to use it) you have to load an
+older version of the target-program. 
+<P>Of course anyone (especially ui-programs with GNU-GPL) can correct the
+ui-program. But this means that the new writer should know the language of
+the original ui-program and understand the way the programmer of the
+ui-program constructs his/her program. 
+<P>And now comes this environment. It's written in Java. Java has a lot of
+disadvantages (needs a VM, difficult to customize and run, slower execution,
+too heavy etc.) but has two big advantages: 
+<UL>
+<LI>It can run on any platform. There is no need to recompile it! </LI>
+<LI> Java is an easily extendable and programmed language. I don't know if
+I ever had the courage to write this program in */Tk alone (if I knew the
+language...)</LI>
+</UL>
+<P>
+<HR>
+<A HREF="ggui-2.html">Next</A>
+Previous
+<A HREF="ggui.html#toc1">Contents</A>
+</BODY>
+</HTML>

@@ -1,0 +1,341 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+ <META NAME="GENERATOR" CONTENT="SGML-Tools 1.0.9">
+ <TITLE>G G U I: GGUI datafile format </TITLE>
+ <LINK HREF="ggui-8.html" REL=next>
+ <LINK HREF="ggui-6.html" REL=previous>
+ <LINK HREF="ggui.html#toc7" REL=contents>
+</HEAD>
+<BODY>
+<A HREF="ggui-8.html">Next</A>
+<A HREF="ggui-6.html">Previous</A>
+<A HREF="ggui.html#toc7">Contents</A>
+<HR>
+<H2><A NAME="datafile-format"></A> <A NAME="s7">7. GGUI datafile format </A></H2>
+
+<P>This part of the documnet is for advanced users/develpers only. If you just
+want to use GGUI or make datafiles there is no need to read this section.
+<P>
+<H2><A NAME="ss7.1">7.1 General Structural Information</A>
+</H2>
+
+<P>The format of this file is like the *.INI files. It is divided into
+sections. Every section has a header and one or more entries. To distinguish
+the header it is enclosed in "[" and "]". The entries have a keyword followed
+by "=" and then by the parameter. A simple section has this form: 
+<BLOCKQUOTE><CODE>
+<PRE>
+[SectionHead]
+Entry1=Data1
+Entry2=another data
+a_number=34
+blankEntry=
+</PRE>
+</CODE></BLOCKQUOTE>
+
+An entry CAN'T begin with the "[". This character is reserved for the head
+of the section. The head of the section is not case sensitive. Any blank
+lines will be ommited. For readability reasons you should leave a blank line
+between the various sections, although it is not needed.
+<P>
+<H2><A NAME="ss7.2">7.2 Text Issues</A>
+</H2>
+
+<H3>Spaces and case sensitivity</H3>
+
+<P>The keywords of an entry can have leading and trailing [SPACE]s and [TAB]s.
+WARNING: all spaces IN the keywords ARE importand. E.g. "_key_" and "key" are
+equal, but "anotherkey" and "another_key" are not (for displaying reasons the
+[SPACE] character is substituded with the [UNDERSCORE] character). 
+<DL>
+<DT><B>Note:</B><DD><P>
+<UL>
+<LI>the " character is only to mark the beginning and the end of the
+keywords.</LI>
+<LI>The keywords are NOT case sensitive. So "key", "Key", "KEY" akd "KeY"
+are the same. </LI>
+<LI>The parameters of this entry ARE case and blank sensitive. So
+"key=locked" and "key=Locked " is NOT the same. </LI>
+<LI>In some special cases, the parameters are not blank &amp; case sensitive
+too. But if not other stated you should know that spaces and the case IS
+importand.</LI>
+</UL>
+ 
+</DL>
+<P>
+<H3>String Parameters</H3>
+
+<P>Many entries have a string of characters for a parameter. This string is not
+passed directly to the main-program, but it is changed first to make it more
+functional. The string-proccessor searches for the following strings and
+replaces them:
+<DL>
+<DT><B>\n</B><DD><P>New line character. This character marks the beginning of a new line in Un*x
+environments.
+<DT><B>\r</B><DD><P>Return character. This character together with the "\n" character (i.e.
+"\n\r\" ) marks the beggining of a new line in a Widow$ environment.
+<DT><B>\l</B><DD><P>OS-independent new line character. Use this if you want to produce a new-line
+on <B>any</B> OS. This is default for a newline-like character.
+<DT><B>\b</B><DD><P>Delete character. Use this to delete the last displayed character.
+<DT><B>\f</B><DD><P>New page character. Used mainly for printing.
+<DT><B>\'</B><DD><P>The actual ' character. Still you can use simply the same character without
+the \ sighn.
+<DT><B>\"</B><DD><P>The actual " character. Still you can use simply the same character without
+the \ sighn.
+<DT><B>\\</B><DD><P>The actual \ character
+</DL>
+
+If the character after the \ is not any of the above, then the output will be
+\? , where ? is the following character. If the last character on a line is \,
+then the output will be \ again.
+<P>Use these codes if for any reason you will like to produce these characters.
+If you want you can even make on the fly whole script files from the GGUI
+environment!
+<P>
+<H2><A NAME="ss7.3">7.3 GGUI Objects </A>
+</H2>
+
+<P>Everything you see on the main Panel of the Wizard is an object. You can
+imagine an object as an information for the end user or as a parameter of
+the caller program. In the future more and more objects will be added. The
+supported objects are listed in the 
+<A HREF="ggui-6.html#tools">tools section</A> of
+the Creator program.
+<P>Every object has a keyword "type" which describes the type of this object.
+This keyword is NOT case sensitive. Also not case sensitive is the "GUIType"
+keyword.
+<P>
+<H2><A NAME="ss7.4">7.4 Describing of the Sections </A>
+</H2>
+
+<H3>General</H3>
+
+<P>This section exists in any ggui datafile. It contains basic information for
+the wizard to be displayed. Parameters:
+<DL>
+<DT><B>Program=</B><DD><P>The <B>actual</B> filename of the target-program (the executable).
+<DL>
+<DT><B>Tip:</B><DD><P>This program is NOT executed directly through Java. Instead Java launches a
+shell and executes the commands <B>through</B> this shell. This has many
+advantages; you can use any of the shell's utilities, such as variables
+e.t.c., you can use parameters with the " character, you can even create
+whole script files on the fly instead of executing a simple command only when
+you use "\l" characters in your parameters! These commands could be even in
+the options parameters!
+</DL>
+<DT><B>ProgramTail=</B><DD><P>The ending text of the target program. This is useful if you want to add some
+special characters at the end of your command.
+<DT><B>Pages=</B><DD><P>How many pages is this wizard. It is an integer value.
+<DT><B>WindowTitle=</B><DD><P>The window title of the wizard.
+<DT><B>Windowed=</B><DD><P>Set it to true if you want the results to appear in a special window. Set it
+to false to appear on the console.
+</DL>
+<P>
+<H3>Page?</H3>
+
+<P>Every page of the wizard has a section like this which describes general
+information for this page. First page is number 1, so the first entry should
+be [Page1] , then [Page2] and so on. Parameters:
+<DL>
+<DT><B>Objects=</B><DD><P>How many objects appear in this page. You have to count all object of this
+page.
+<DT><B>Image=</B><DD><P>The wizard can display in every page an image. If you don't want to display
+an image leave this section blank. Warning: it's better to specify the full
+path of this image, or the GGUI will not be able to find this picture and
+ignore it. (This should be change somehow...)
+<DT><B>Interactive=</B><DD><P>You can use interactive wizards too. E.g. by selecting on a special option
+to go to a different page than the "next" one. To see how to use it, look at
+the [P?Interactive] section below. Can be true/enabled/yes/on or
+false/disabled/no/off. 
+<DT><B>canFinish</B><DD><P>Use this entry with true/yes if you want the wizard to be able to exit on
+this page. Otherwise the "Finish" button will be shadowed on this page.
+Remember that on the last page the "Finish" button is always enabled.
+</DL>
+<P>
+<H3>P?Interactive</H3>
+
+<P>With this section you define an interactive wizard. First you have to
+declare this page as interactive (see section [Page?]). Then you have to name
+a gguiObject as interactive object. Parameters:
+<DL>
+<DT><B>Object=</B><DD><P>Which object in this page will be an interactive object. Such objects are
+Boolean and Chooser.
+<DT><B>on?jumpto=</B><DD><P>Page number to jump to. If for example the first option is selected, the
+wizard will jump to the page stored in on1jumpto, if the second option is
+selected, the wizard will jump to the page stored in on2jumpto etc. As a
+parameter it takes an integer number in the range 1 - {MAX_PAGES}
+</DL>
+<P>
+<H3>P?Object*</H3>
+
+<P>Every object on every page has an entry like this. Here is described the
+object. First object on first page has section [P1Object1], second object on
+first page [P1Object2], first object on second page [P2Object1], second
+object on second page [P2Object2] and so on. The parameters for each object
+are different. 
+<P>
+<H2><A NAME="ss7.5">7.5 Info Object</A>
+</H2>
+
+<P>Parameters: 
+<DL>
+<DT><B>Type=Info</B><DD><P>Descibes the type of this object. Should always be "info". 
+<DT><B>GUIType=</B><DD><P>What kind of visual object do we want for this object. Valid keywords are
+Label, TextArea and TextField. Default is Label.
+<DT><B>helpText=</B><DD><P>Text to display on the screen. 
+</DL>
+<P>
+<H2><A NAME="ss7.6">7.6 Boolean Object</A>
+</H2>
+
+<P>Parameters: 
+<DL>
+<DT><B>Type=Boolean</B><DD><P>Descibes the type of this object. Should always be "boolean". 
+<DT><B>forceEnabled=</B><DD><P>The <B>actual</B> parameter of the target-program when we want to enable this
+feature. This will pass to the target-programm at the end. If the default of
+this switch is "on" on the target-program you can leave this blank.
+<DT><B>forceDisabled=</B><DD><P>The <B>actual</B> parameter of the target-program when we want to disable this
+feature. This will pass to the target-programm at the end. If the default of
+this switch is "off" on the target-program you can leave this blank. 
+<DT><B>defaultState=</B><DD><P>Which is the default state for this option. Valid keywords are enabled,
+true, disabled, false. 
+<DT><B>helpText=</B><DD><P>Small help text to display on the screen before the actual boolean object. 
+<DT><B>GUIType=</B><DD><P>What kind of visual object do we want for this object. Valid keywords are
+Checkbox and Choice. Default is Checkbox. 
+<DT><B>enabledText=</B><DD><P>Text to display for the on/enabled position. 
+<DT><B>disabledText=</B><DD><P>Text to display for the off/disabled position. When the checkbox is
+selected, then this text doesn't appear on screen. 
+</DL>
+<P>
+<H2><A NAME="ss7.7">7.7 Chooser Object </A>
+</H2>
+
+<P>Parameters: 
+<DL>
+<DT><B>Type=Chooser</B><DD><P>Descibes the type of this object. Should always be "chooser". 
+<DT><B>countOptions=</B><DD><P>How many options for this object. It is an integer. 
+<DT><B>Option?=</B><DD><P>Every option has this parameter. It is the actual parameter of the
+target-program when we want to enable this feature. This will pass to the
+target-programm at the end. First option is number 1, so first option will be
+Option1= , second Option2= etc. 
+<DT><B>optionText?=</B><DD><P>Text to display for this option. First option is number 1, so first
+optionText will be optionText1= , second otionText2= etc. 
+<DT><B>defaultOption=</B><DD><P>Which is the default option. It is an integer. First option is number 1. 
+<DT><B>helpText=</B><DD><P>Small help text to display on the screen before the actual Chooser object. 
+<DT><B>GUIType=</B><DD><P>What kind of visual object do we want for this object. Valid keywords are
+Checkbox, List and Choice. Default is Checkbox. 
+</DL>
+<P>
+<H2><A NAME="ss7.8">7.8 Freetext Object </A>
+</H2>
+
+<P>Parameters: 
+<DL>
+<DT><B>Type=Freetext</B><DD><P>Descibes the type of this object. Should always be "freetext". 
+<DT><B>leadText=</B><DD><P>The leading text of the actual parameter of the target-program. For example
+if you want to pass the following parameter to the target-application: -title
+"mytitle" then the leadtext should be -title " 
+<DT><B>trailText=</B><DD><P>The trailing text of the actual parameter of the target-program. For example
+if you want to pass the following parameter to the target-application: -title
+"mytitle" then the trailtext should be " 
+<DT><B>defaultText=</B><DD><P>It is the default text to display on the GGUI object. 
+<DT><B>appearAlways=</B><DD><P>If you don't want for this parameter to appear when the text is empty, then
+you have to enter disabled or false here. If you want to appear always then
+type enabled or true here. 
+<DT><B>helpText=</B><DD><P>Small help text to display on the screen before the actual Freetext object. 
+<DT><B>GUIType=</B><DD><P>What kind of visual object do we want for this object. Valid keywords are
+TextField and TextArea. Default is TextField. 
+</DL>
+<P>
+<H2><A NAME="ss7.9">7.9 Integer Object </A>
+</H2>
+
+<P>Parameters: 
+<DL>
+<DT><B>Type=Integer</B><DD><P>Descibes the type of this object. Should always be "integer". 
+<DT><B>leadText=</B><DD><P>The leading text of the actual parameter of the target-program. For example
+if you want to pass the following parameter to the target-application: -title
+"mytitle" then the leadtext should be -title " 
+<DT><B>trailText=</B><DD><P>The trailing text of the actual parameter of the target-program. For example
+if you want to pass the following parameter to the target-application: -title
+"mytitle" then the trailtext should be " 
+<DT><B>helpText=</B><DD><P>Small help text to display on the screen before the actual Freetext object. 
+<DT><B>defaultInt=</B><DD><P>The default integer value to use for this parameter.
+<DT><B>minimum=</B><DD><P>The minimum number this parameter can take.
+<DT><B>minimum=</B><DD><P>The maximum number this parameter can take.
+<DT><B>smallStep=</B><DD><P>The incremental/decremantal step when the user clicks the single arrow.
+<DT><B>smallStep=</B><DD><P>The incremental/decremantal step when the user clicks the double arrow.
+</DL>
+<P>
+<H2><A NAME="ss7.10">7.10 FileChooser Object </A>
+</H2>
+
+<P>Parameters: 
+<DL>
+<DT><B>Type=FileChooser</B><DD><P>Descibes the type of this object. Should always be "filechooser". 
+<DT><B>leadText=</B><DD><P>The leading text of the actual parameter of the target-program. For example
+if you want to pass the following parameter to the target-application: -file
+"/home/me/a-file" then the leadtext should be -file " 
+<DT><B>trailText=</B><DD><P>The trailing text of the actual parameter of the target-program. For example
+if you want to pass the following parameter to the target-application: -file
+"/home/me/a-file" then the leadtext should be " 
+<DT><B>defaultFile=</B><DD><P>The default file name 
+<DT><B>appearAlways=</B><DD><P>If you don't want for this parameter to appear when the text is empty, then
+you have to enter disabled or false here. If you want to appear always then
+type enabled or true here. 
+<DT><B>helpText=</B><DD><P>Small help text to display on the screen before the actual FileChooser
+object. 
+</DL>
+<P>
+<H2><A NAME="ss7.11">7.11 3DLine Object </A>
+</H2>
+
+<P>Parameters: 
+<DL>
+<DT><B>type=3DLine</B><DD><P>Descibes the type of this object. Should always be "3dline". 
+</DL>
+<P>
+<H2><A NAME="ss7.12">7.12 Creating you own gguiObjects (for java developers only) </A>
+</H2>
+
+<P>Creating you own objects is rather easy. First you have to put it under
+package panos.ggui.objects . Then the name should follow some rules: 
+<UL>
+<LI>must begin with ggui </LI>
+<LI>next character should be uppercase </LI>
+<LI>all other characters should be lowercase</LI>
+<LI> numbers are allowed (just on any other java class)</LI>
+</UL>
+
+For example to create an object named myobject, the class should be
+gguiMyobject. If you don't follow these rules the GGUI will not find it.
+New GGUI objects should extend the gguiObject Class.
+<P>It can override the following methods: 
+<DL>
+<DT><B>void importData (int page, int object, PropertiesSection prop)</B><DD><P>Maybe the most difficult one. With this method you can collect information
+from the PropertiesSection class. E.g. to collect information from the
+field "myfield" you will have to write something like this: String myfield =
+prop.getValue ("myfield"); The PropertiesSection class will
+find this entry and assign it to the myfield string. 
+<DT><B>Component createGUI()</B><DD><P>Here creates the actual visual-objects of
+every object. You can create for example a java.awt.Panel and
+put in it everything you like. 
+<DT><B>Panel getCreatorPanel()</B><DD><P>Return the UI in a form of a panel for the Creator program. Add here all the
+controls you need in order to visually define this object.
+<DT><B>String getPropertiesSection(boolean onlyDefault)</B><DD><P>Returns a PropertiesSection Class describing the object for the specified
+object. If the onlyDefault is true you should return the parameters which have
+been changed. If it is false you have to return a complete describing of this
+object.
+<DT><B>String getParam()</B><DD><P>Return the result of this paramater/object,
+depends onb what is selected.
+<DT><B>int getInteractive()</B><DD><P>Return the index number of the selected option in this object. Should be
+between 1 and the maximum number of option.
+</DL>
+<P>
+<HR>
+<A HREF="ggui-8.html">Next</A>
+<A HREF="ggui-6.html">Previous</A>
+<A HREF="ggui.html#toc7">Contents</A>
+</BODY>
+</HTML>
